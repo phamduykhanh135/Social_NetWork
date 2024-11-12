@@ -1,0 +1,43 @@
+class IconPaths {
+  static const String facebookIconPath = 'assets/icons/facebook.svg';
+  static const String facebookBlueIconPath = 'assets/icons/facebook_blue.svg';
+  static const String instagramIconPath = 'assets/icons/instagram.svg';
+  static const String globeIconPath = 'assets/icons/globe.svg';
+  static const String ellipseBIconPath = 'assets/icons/ellipse.svg';
+  static const String arrowRightIconPath = 'assets/icons/arrow_right.svg';
+  static const String arrowLeftIconPath = 'assets/icons/arrow_left.svg';
+  static const String arrowBackIconPath = 'assets/icons/arrow_back.svg';
+  static const String cancelIconPath = 'assets/icons/cancel.svg';
+  static const String logOutIconPath = 'assets/icons/log_out.svg';
+  static const String gridViewIconPath = 'assets/icons/grid_view.svg';
+  static const String imageIconPath = 'assets/icons/image.svg';
+  static const String homeIconPath = 'assets/icons/home.svg';
+  static const String cameraIconPath = 'assets/icons/camera.svg';
+  static const String cameraBlueIconPath = 'assets/icons/camera_blue.svg';
+  static const String searchIconPath = 'assets/icons/search.svg';
+  static const String searchBlueIconPath = 'assets/icons/search_blue.svg';
+  static const String profileIconPath = 'assets/icons/profile.svg';
+  static const String sendIconPath = 'assets/icons/send.svg';
+  static const String chatBlueIconPath = 'assets/icons/chat_blue.svg';
+  static const String notificationIconPath = 'assets/icons/notification.svg';
+  static const String addBlueIconPath = 'assets/icons/add_blue.svg';
+  static const String heartBlueIconPath = 'assets/icons/heart_blue.svg';
+  static const String heartBluesIconPath = 'assets/icons/heart_blues.svg';
+  static const String uploadIconPath = 'assets/icons/upload.svg';
+  static const String settingWhiteIconPath = 'assets/icons/setting_white.svg';
+  static const String settingBlackIconPath = 'assets/icons/setting_black.svg';
+  static const String editIconPath = 'assets/icons/edit.svg';
+  static const String deleteIconPath = 'assets/icons/delete.svg';
+  static const String cancelBlueIconPath = 'assets/icons/cancel_blue.svg';
+  static const String showIconPath = 'assets/icons/show.svg';
+  static const String hideIconPath = 'assets/icons/hide.svg';
+  static const String filterIconPath = 'assets/icons/filter.svg';
+  static const String gridViewBlueIconPath = 'assets/icons/grid_view_blue.svg';
+  static const String notificationBlueIconPath =
+      'assets/icons/notification_blue.svg';
+  static const String homeBlueIconPath = 'assets/icons/home_blue.svg';
+  static const String sendBlueIconPath = 'assets/icons/send_blue.svg';
+  static const String heartIconPath = 'assets/icons/heart.svg';
+  static const String googleIconPath = 'assets/icons/google.svg';
+  static const String eyeBlueIconPath = 'assets/icons/eye_blue.svg';
+}
