@@ -40,16 +40,16 @@ class _PostListFollowingState extends State<PostListFollowing>
           if (state is PostFollowingLoading) {
             return const Center(child: CircularProgressIndicator());
           } else if (state is PostFollowingLoaded) {
-            return RefreshIndicator(
-              onRefresh: () async {
-                _postBloc.add(RefreshPostFollowings());
+            return NotificationListener<ScrollNotification>(
+              onNotification: (scrollNotification) {
+                if (scrollNotification.metrics.extentAfter < 200) {
+                  _postBloc.add(LoadMorePostFollowings());
+                }
+                return true;
               },
-              child: NotificationListener<ScrollNotification>(
-                onNotification: (scrollNotification) {
-                  if (scrollNotification.metrics.extentAfter < 200) {
-                    _postBloc.add(LoadMorePostFollowings());
-                  }
-                  return true;
+              child: RefreshIndicator(
+                onRefresh: () async {
+                  _postBloc.add(RefreshPostFollowings());
                 },
                 child: ListView.builder(
                   itemCount: state.posts.length + 1,
@@ -69,9 +69,9 @@ class _PostListFollowingState extends State<PostListFollowing>
                             createdAt: post.createdAt,
                           ));
                     } else if (state.hasMore) {
-                      return Container();
+                      return const SizedBox.shrink();
                     }
-                    return null;
+                    return const SizedBox.shrink();
                   },
                 ),
               ),

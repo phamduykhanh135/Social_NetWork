@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:network/app/messages.dart';
+import 'package:network/app/texts.dart';
 import 'package:network/data/services/post_service.dart';
 import 'package:network/views/widgets/show_snackbar.dart';
 import 'package:network/viewmodels/blocs/bloc_post_user/post_user_bloc.dart';
@@ -141,7 +142,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                         const Expanded(
                           flex: 1,
                           child: Text(
-                            'Tạo bài viết',
+                            TitleTexts.createPostTitle,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.bold),
@@ -167,7 +168,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                                   onPressed:
                                       _isPostReady() ? _createPost : null,
                                   child: const Text(
-                                    'Đăng bài',
+                                    ButtonTexts.post,
                                     style: TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.bold,
@@ -228,7 +229,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                       ),
                       TextField(
                         decoration: const InputDecoration(
-                            labelText: "Tiêu đề ?",
+                            labelText: HintTexts.descriptionHint,
                             labelStyle: TextStyle(color: Colors.grey)),
                         controller: _titleController,
                       ),
@@ -239,7 +240,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                           child: _imageBytes == null
                               ? const Center(
                                   child: Text(
-                                  'Chọn ảnh',
+                                  HintTexts.selectPhotoHint,
                                   style: TextStyle(color: Colors.grey),
                                 ))
                               : Image.memory(_imageBytes!, fit: BoxFit.cover),

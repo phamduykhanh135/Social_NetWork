@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:network/app/texts.dart';
 import 'package:network/utils/get_user_id.dart';
 import 'package:network/viewmodels/blocs/bloc_post_user/post_user_bloc.dart';
 import 'package:network/viewmodels/blocs/bloc_post_user/post_user_event.dart';
@@ -89,7 +90,8 @@ class _ProfileScreenState extends State<UserSearchScreen>
                                 postCount =
                                     state.post.length; // Get the post count
                               }
-                              return Text('$postCount Shots'); // Display count
+                              return Text(
+                                  '$postCount ${TitleTexts.shots}'); // Display count
                             },
                           ),
                         ),
@@ -104,7 +106,8 @@ class _ProfileScreenState extends State<UserSearchScreen>
                             if (state is TitlesLoaded) {
                               collectionCount = state.titles.length;
                             }
-                            return Text('$collectionCount Collections');
+                            return Text(
+                                '$collectionCount ${TitleTexts.collection}');
                           }),
                         ),
                       ),

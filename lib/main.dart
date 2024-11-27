@@ -22,18 +22,15 @@ void main() async {
     otpType: OTPType.numeric, // Hoặc OTPType.alpha, OTPType.alphaNumeric
     expiry: 30000, // Thời gian hết hạn của OTP (30 giây)
     appEmail: 'your_email@example.com',
-    otpLength: 4, // Độ dài OTP
+    otpLength: 4,
   );
 
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  // Khởi tạo Firebase
-  // FirebaseApp app =
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  // setupLocator(app);
 
   final remoteConfig = FirebaseRemoteConfig.instance;
   await remoteConfig.setConfigSettings(RemoteConfigSettings(

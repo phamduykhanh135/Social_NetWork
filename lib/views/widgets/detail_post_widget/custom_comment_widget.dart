@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import 'package:network/app/texts.dart';
 
 class CustomCommentWidget extends StatefulWidget {
   final Function(String) onCommentSubmitted;
@@ -36,7 +37,7 @@ class _CustomCommentWidgetState extends State<CustomCommentWidget> {
             child: TextField(
               controller: _commnentController,
               decoration: const InputDecoration(
-                hintText: 'Nhập bình luận...',
+                hintText: HintTexts.enterCommenthHint,
                 border: OutlineInputBorder(),
               ),
             ),

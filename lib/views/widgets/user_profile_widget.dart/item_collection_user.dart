@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:network/app/messages.dart';
+import 'package:network/app/texts.dart';
 import 'package:network/data/models/post_model.dart';
 import 'package:network/data/services/post_service.dart';
 
@@ -171,8 +172,8 @@ class ItemCollectionUser extends StatelessWidget {
                     children: [
                       Text(
                         totalShots < 2
-                            ? ' $totalShots shot'
-                            : ' $totalShots shots',
+                            ? ' $totalShots ${TitleTexts.shot}'
+                            : ' $totalShots ${TitleTexts.shots}',
                         style: const TextStyle(
                           fontSize: 14,
                           color: Colors.grey,
@@ -185,7 +186,7 @@ class ItemCollectionUser extends StatelessWidget {
                   return const Row(
                     children: [
                       Text(
-                        '0 shot',
+                        TitleTexts.noshot,
                         style: TextStyle(
                           fontSize: 14,
                           color: Colors.grey,

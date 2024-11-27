@@ -184,21 +184,21 @@ class _SetNewPasswordScreenState extends State<ChangePasswordScreen> {
                                 borderRadius: BorderRadius.circular(30),
                                 isPasswordField: true,
                                 controller: _currentPasswordController,
-                                hintText: "Mật khẩu hiện tại",
+                                hintText: HintTexts.currentPasswordHint,
                                 errorText: _currentpasswordErrorText,
                               ),
                               TextFormFieldWidget(
                                 borderRadius: BorderRadius.circular(30),
                                 isPasswordField: true,
                                 controller: _newPasswordController,
-                                hintText: "Mật khẩu mới",
+                                hintText: HintTexts.newPasswordHint,
                                 errorText: _newPasswordErrorText,
                               ),
                               TextFormFieldWidget(
                                 borderRadius: BorderRadius.circular(30),
                                 isPasswordField: true,
                                 controller: _confirmController,
-                                hintText: "Xác nhận mật khẩu",
+                                hintText: HintTexts.confirmPasswordHint,
                                 errorText: _confirmErrorText,
                               ),
                             ],
@@ -208,7 +208,7 @@ class _SetNewPasswordScreenState extends State<ChangePasswordScreen> {
                         CustomElevatedButton(
                           height: 52,
                           width: 315,
-                          text: "Đổi mật khẩu",
+                          text: HintTexts.changePasswordHint,
                           onPressed: () {
                             _changePassword(context);
                           },

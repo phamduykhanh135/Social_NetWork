@@ -40,16 +40,16 @@ class _PostListTrendingState extends State<PostListTrending>
           if (state is PostTrendingLoading) {
             return const Center(child: CircularProgressIndicator());
           } else if (state is PostTrendingLoaded) {
-            return RefreshIndicator(
-              onRefresh: () async {
-                _postBloc.add(RefreshPostTrendings());
+            return NotificationListener<ScrollNotification>(
+              onNotification: (scrollNotification) {
+                if (scrollNotification.metrics.extentAfter < 200) {
+                  _postBloc.add(LoadMorePostTrendings());
+                }
+                return true;
               },
-              child: NotificationListener<ScrollNotification>(
-                onNotification: (scrollNotification) {
-                  if (scrollNotification.metrics.extentAfter < 200) {
-                    _postBloc.add(LoadMorePostTrendings());
-                  }
-                  return true;
+              child: RefreshIndicator(
+                onRefresh: () async {
+                  _postBloc.add(RefreshPostTrendings());
                 },
                 child: ListView.builder(
                   itemCount: state.posts.length + 1,
@@ -68,9 +68,9 @@ class _PostListTrendingState extends State<PostListTrending>
                             createdAt: post.createdAt,
                           ));
                     } else if (state.hasMore) {
-                      return Container();
+                      return const SizedBox.shrink();
                     }
-                    return null;
+                    return const SizedBox.shrink();
                   },
                 ),
               ),

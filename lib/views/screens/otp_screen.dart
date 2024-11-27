@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:email_otp/email_otp.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:network/app/texts.dart';
 import 'package:network/data/services/auth_service.dart';
 import 'package:network/views/widgets/custom_elevated_button.dart';
 import 'package:network/views/widgets/otp/opt_widget.dart';
@@ -89,7 +90,7 @@ class _OtpScreenState extends State<OtpScreen> {
           icon: const Icon(Icons.arrow_back_ios_new),
         ),
         title: const Text(
-          "NHẬP MÃ PIN CỦA BẠN",
+          TitleTexts.eneterYourPinTitle,
           style: TextStyle(fontSize: 20),
         ),
       ),
@@ -118,8 +119,8 @@ class _OtpScreenState extends State<OtpScreen> {
             const SizedBox(height: 80),
             Text(
               _isResendAvailable
-                  ? "Gửi lại mã OTP"
-                  : "Gửi lại OTP sau $_countdown giây",
+                  ? TitleTexts.resendOTPCodeTitle
+                  : "${TitleTexts.resendOtpLaterTitle} $_countdown ${TitleTexts.secondTitle}",
               style: const TextStyle(fontSize: 16),
             ),
             Container(
@@ -140,7 +141,7 @@ class _OtpScreenState extends State<OtpScreen> {
                   shadowColor: Colors.transparent,
                 ),
                 child: const Text(
-                  'Gửi lại OTPs',
+                  TitleTexts.resendOTPCodeTitle,
                   style: TextStyle(color: Colors.white),
                 ),
               ),
@@ -149,7 +150,7 @@ class _OtpScreenState extends State<OtpScreen> {
               height: 160,
             ),
             CustomElevatedButton(
-                text: 'XÁC NHẬN',
+                text: ButtonTexts.confirm,
                 onPressed: () {
                   _handleSignUpOTP(context);
                 })

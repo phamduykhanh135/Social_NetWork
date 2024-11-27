@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:network/app/image_paths.dart';
 import 'package:network/app/messages.dart';
+import 'package:network/app/texts.dart';
 import 'package:network/views/widgets/custom_icons.dart';
 import 'package:network/viewmodels/blocs/bloc_user/user_bloc.dart';
 import 'package:network/viewmodels/blocs/bloc_user/user_state.dart';
@@ -108,7 +109,7 @@ class _HeaderUserProfileState extends State<HeaderUserProfile> {
                     margin: const EdgeInsets.fromLTRB(10, 25, 10, 10),
                     padding: const EdgeInsets.all(10),
                     color: const Color(0xFFF6F7F9),
-                    child: const Row(
+                    child: Row(
                       children: [
                         Expanded(
                           child: SizedBox(
@@ -116,11 +117,11 @@ class _HeaderUserProfileState extends State<HeaderUserProfile> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text('220',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold)),
-                                SizedBox(width: 5),
-                                Text('Followers'),
+                                Text('${user.followersTotal}',
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold)),
+                                const SizedBox(width: 5),
+                                const Text(TitleTexts.followers),
                               ],
                             ),
                           ),
@@ -131,11 +132,11 @@ class _HeaderUserProfileState extends State<HeaderUserProfile> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text('150',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold)),
-                                SizedBox(width: 5),
-                                Text('Following'),
+                                Text('${user.followingTotal}',
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold)),
+                                const SizedBox(width: 5),
+                                const Text(TitleTexts.following),
                               ],
                             ),
                           ),

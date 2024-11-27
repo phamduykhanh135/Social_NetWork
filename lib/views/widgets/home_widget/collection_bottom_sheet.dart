@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:network/app/messages.dart';
+import 'package:network/app/texts.dart';
 import 'package:network/data/models/titlle_model.dart';
 import 'package:network/utils/get_user_id.dart';
 import 'package:network/views/widgets/custom_elevated_button.dart';
@@ -109,8 +110,8 @@ class CollectionBottomSheetState extends State<CollectionBottomSheet>
                   if (state is TitlesLoading) {
                     return Container();
                   } else if (state is TitlesError) {
-                    return Center(
-                      child: Text('Error: ${state.errorMessage}'),
+                    return const Center(
+                      child: Text(ErrorTexts.errorLoadingData),
                     );
                   } else if (state is TitlesLoaded) {
                     final titles = state.titles;
@@ -248,7 +249,7 @@ class _AddCollectionState extends State<AddCollection> {
                     child: TextFormField(
                       controller: _typeNameController,
                       decoration: InputDecoration(
-                          labelText: 'Type name',
+                          labelText: HintTexts.typeNameHint,
                           labelStyle:
                               const TextStyle(color: Colors.grey, fontSize: 13),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
@@ -266,7 +267,7 @@ class _AddCollectionState extends State<AddCollection> {
                   ),
                   CustomElevatedButton(
                     width: MediaQuery.of(context).size.width * 0.8,
-                    text: 'CREATE COLLECTION',
+                    text: ButtonTexts.createCollection,
                     fontSize: 13,
                     onPressed: () {
                       _handlercreateNewTitle(context);

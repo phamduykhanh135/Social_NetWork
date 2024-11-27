@@ -51,28 +51,33 @@ class _PostListPopularState extends State<PostListPopular>
                 }
                 return true;
               },
-              child: ListView.builder(
-                itemCount: state.posts.length + 1,
-                itemBuilder: (context, index) {
-                  if (index < state.posts.length) {
-                    final post = state.posts[index];
-                    final user = state.userMap[post.userId];
-
-                    return Container(
-                        padding: const EdgeInsets.all(10),
-                        child: ItemPostSocial(
-                          postId: post.id!,
-                          imageUser: user!.avatarUrl,
-                          nameUser: user.userName,
-                          drectionPost: post.description,
-                          imagePost: post.imageUrl,
-                          createdAt: post.createdAt,
-                        ));
-                  } else if (state.hasMore) {
-                    return Container();
-                  }
-                  return null;
+              child: RefreshIndicator(
+                onRefresh: () async {
+                  _postBloc.add(RefreshPostPopulars());
                 },
+                child: ListView.builder(
+                  itemCount: state.posts.length + 1,
+                  itemBuilder: (context, index) {
+                    if (index < state.posts.length) {
+                      final post = state.posts[index];
+                      final user = state.userMap[post.userId];
+
+                      return Container(
+                          padding: const EdgeInsets.all(10),
+                          child: ItemPostSocial(
+                            postId: post.id!,
+                            imageUser: user!.avatarUrl,
+                            nameUser: user.userName,
+                            drectionPost: post.description,
+                            imagePost: post.imageUrl,
+                            createdAt: post.createdAt,
+                          ));
+                    } else if (state.hasMore) {
+                      return const SizedBox.shrink();
+                    }
+                    return const SizedBox.shrink();
+                  },
+                ),
               ),
             );
           } else if (state is PostPopularError) {

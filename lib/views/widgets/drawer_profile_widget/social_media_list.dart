@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:network/app/texts.dart';
 import 'package:network/data/services/auth_service.dart';
 import 'package:network/views/widgets/custom_icons.dart';
 
@@ -20,37 +21,37 @@ class SocialMediaList extends StatelessWidget {
         child: Column(
           children: [
             TitleButton(
-              text: 'Email',
+              text: ButtonTexts.email,
               onPressed: () {},
             ),
             TitleButton(
-              text: 'Instagram',
+              text: ButtonTexts.instagram,
               onPressed: () {},
             ),
             TitleButton(
-              text: 'Twitter',
+              text: ButtonTexts.twitter,
               onPressed: () {},
             ),
             TitleButton(
-              text: 'Website',
+              text: ButtonTexts.website,
               onPressed: () {},
             ),
             TitleButton(
-              text: 'Paypal',
+              text: ButtonTexts.paypal,
               onPressed: () {},
             ),
             TitleButton(
-              text: 'Change password',
+              text: ButtonTexts.changePasword,
               onPressed: () {
                 context.push('/change_password');
               },
             ),
             TitleButton(
-              text: 'About i.click',
+              text: ButtonTexts.aboutICLick,
               onPressed: () {},
             ),
             TitleButton(
-              text: 'Term & privacy',
+              text: ButtonTexts.termAndPrivacy,
               onPressed: () {},
             ),
             Container(
@@ -69,7 +70,7 @@ class SocialMediaList extends StatelessWidget {
                       const SizedBox(
                         width: 5,
                       ),
-                      const Text('Log out'),
+                      const Text(ButtonTexts.logOut),
                     ],
                   ),
                 ),

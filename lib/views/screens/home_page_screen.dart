@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:network/app/texts.dart';
 import 'package:network/views/widgets/custom_icons.dart';
 import 'package:network/views/widgets/home_widget/post_list_following.dart';
 import 'package:network/views/widgets/home_widget/post_list_populer.dart';
@@ -104,7 +105,7 @@ class Search extends StatelessWidget {
               width: 10,
             ),
             const Text(
-              'Search',
+              HintTexts.searchHint,
               style: TextStyle(color: Colors.grey, fontSize: 13),
             )
           ],

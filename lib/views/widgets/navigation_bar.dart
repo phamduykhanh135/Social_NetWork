@@ -1,8 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:network/data/services/notification_service.dart';
+import 'package:network/utils/get_user_id.dart';
 import 'package:network/viewmodels/cubits/nav_cubit.dart';
-import 'package:network/views/widgets/icon_widget.dart';
+import 'package:network/views/widgets/custom_icons.dart';
 import 'package:network/views/widgets/navbar_item.dart';
 
 class NavigationBarWidget extends StatefulWidget {
@@ -18,6 +19,8 @@ class NavigationBarWidget extends StatefulWidget {
 }
 
 class _NavigationBarWidgetState extends State<NavigationBarWidget> {
+  final NotificationService notificationService = NotificationService();
+  String? userId = getUserId();
   @override
   Widget build(BuildContext context) {
     final currentPageIndex =
@@ -33,33 +36,67 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween, // Cân đều các icon
           children: <Widget>[
             NavBarItemWidget(
-              icon: IconWidget.home,
+              icon: CustomIcons.home(),
               index: 0,
               currentPageIndex: currentPageIndex,
               onTap: widget.onPageSelected,
-              iconGradient: IconWidget.homeGradient,
+              iconGradient: CustomIcons.homeBlue(),
             ),
             NavBarItemWidget(
-              icon: IconWidget.discover,
+              icon: CustomIcons.categogy(),
               index: 1,
               currentPageIndex: currentPageIndex,
               onTap: widget.onPageSelected,
-              iconGradient: IconWidget.discoverGradient,
+              iconGradient: CustomIcons.categoryBlue(),
             ),
             const SizedBox(width: 48), // Chừa khoảng trống ở giữa cho FAB
-            NavBarItemWidget(
-              icon: IconWidget.activity,
-              index: 2,
-              currentPageIndex: currentPageIndex,
-              onTap: widget.onPageSelected,
-              iconGradient: IconWidget.activityGradient,
+            Stack(
+              children: [
+                Positioned(
+                  child: NavBarItemWidget(
+                    icon: CustomIcons.notification(),
+                    index: 2,
+                    currentPageIndex: currentPageIndex,
+                    onTap: widget.onPageSelected,
+                    iconGradient: CustomIcons.notificationBlue(),
+                  ),
+                ),
+                Positioned(
+                    top: 8,
+                    right: 13,
+                    child: StreamBuilder<int>(
+                        stream: notificationService
+                            .getUnreadNotificationCount(userId!),
+                        builder: (context, snapshot) {
+                          if (!snapshot.hasData || snapshot.data == 0) {
+                            return const SizedBox.shrink();
+                          }
+
+                          return Container(
+                            width: 20,
+                            height: 20,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: Colors.red),
+                            alignment: Alignment.center,
+                            child: Text(
+                              snapshot.data! > 99 ? '99+' : '${snapshot.data}',
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          );
+                        })),
+              ],
             ),
+
             NavBarItemWidget(
-              icon: IconWidget.profile,
+              icon: CustomIcons.profile(),
               index: 3,
               currentPageIndex: currentPageIndex,
               onTap: widget.onPageSelected,
-              iconGradient: IconWidget.profileGradient,
+              iconGradient: CustomIcons.profileBlue(),
             ),
           ],
         ),

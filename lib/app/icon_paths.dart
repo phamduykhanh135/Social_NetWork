@@ -17,6 +17,7 @@ class IconPaths {
   static const String searchIconPath = 'assets/icons/search.svg';
   static const String searchBlueIconPath = 'assets/icons/search_blue.svg';
   static const String profileIconPath = 'assets/icons/profile.svg';
+  static const String profileBlueIconPath = 'assets/icons/profile_blue.svg';
   static const String sendIconPath = 'assets/icons/send.svg';
   static const String chatBlueIconPath = 'assets/icons/chat_blue.svg';
   static const String notificationIconPath = 'assets/icons/notification.svg';
@@ -40,4 +41,6 @@ class IconPaths {
   static const String heartIconPath = 'assets/icons/heart.svg';
   static const String googleIconPath = 'assets/icons/google.svg';
   static const String eyeBlueIconPath = 'assets/icons/eye_blue.svg';
+  static const String categoryIconPath = 'assets/icons/category.svg';
+  static const String categoryBlueIconPath = 'assets/icons/category_blue.svg';
 }

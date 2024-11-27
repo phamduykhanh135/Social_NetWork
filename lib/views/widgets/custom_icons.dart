@@ -76,6 +76,10 @@ class CustomIcons {
     return icon(IconPaths.profileIconPath, size: size);
   }
 
+  static SvgPicture profileBlue({double size = 24}) {
+    return icon(IconPaths.profileBlueIconPath, size: size);
+  }
+
   static SvgPicture send({double size = 24}) {
     return icon(IconPaths.sendIconPath, size: size);
   }
@@ -166,6 +170,14 @@ class CustomIcons {
 
   static SvgPicture eyeBlue({double size = 24}) {
     return icon(IconPaths.eyeBlueIconPath, size: size);
+  }
+
+  static SvgPicture categogy({double size = 24}) {
+    return icon(IconPaths.categoryIconPath, size: size);
+  }
+
+  static SvgPicture categoryBlue({double size = 24}) {
+    return icon(IconPaths.categoryBlueIconPath, size: size);
   }
 
   static SvgPicture icon(String iconPath, {double size = 24}) {

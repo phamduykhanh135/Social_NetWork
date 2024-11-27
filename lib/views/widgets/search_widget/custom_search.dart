@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:network/app/texts.dart';
 import 'package:network/viewmodels/blocs/bloc_search/search_bloc.dart';
 import 'package:network/viewmodels/blocs/bloc_search/search_event.dart';
 import 'package:network/views/widgets/custom_icons.dart';
@@ -53,7 +54,7 @@ class _CustomSearchState extends State<CustomSearch> {
           child: TextFormField(
             controller: _searchController,
             decoration: InputDecoration(
-              hintText: 'Search',
+              hintText: HintTexts.searchHint,
               hintStyle: const TextStyle(
                 color: Colors.grey,
                 fontSize: 16,

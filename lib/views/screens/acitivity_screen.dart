@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:network/app/messages.dart';
+import 'package:network/app/texts.dart';
 import 'package:network/data/models/notification_model.dart';
 import 'package:network/data/services/notification_service.dart';
 import 'package:network/utils/get_user_id.dart';
@@ -30,13 +31,13 @@ class _ActivityScreenState extends State<ActivityScreen>
         title: Row(
           children: [
             const Text(
-              'Activity ',
+              TitleTexts.activityTitle,
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             StreamBuilder<int>(
               stream: notificationService.getUnreadNotificationCount(userId!),
               builder: (context, snapshot) {
-                if (!snapshot.hasData) return const Text('(0)');
+                if (!snapshot.hasData) return const Text(TitleTexts.zeroTitle);
                 return Text(
                   '(${snapshot.data})',
                   style: const TextStyle(
@@ -64,7 +65,7 @@ class _ActivityScreenState extends State<ActivityScreen>
               return const CircularProgressIndicator();
             }
             if (!snapshot.hasData || snapshot.data!.isEmpty) {
-              return const Text(Messages.noMessagesFound);
+              return const Text(TitleTexts.noAnnouncementsTitle);
             }
 
             List<NotificationModel> notifications = snapshot.data!;

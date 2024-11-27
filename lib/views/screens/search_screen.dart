@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:network/app/image_paths.dart';
+import 'package:network/app/texts.dart';
 import 'package:network/viewmodels/blocs/bloc_search/search_bloc.dart';
 import 'package:network/viewmodels/blocs/bloc_search/search_state.dart';
 import 'package:network/views/widgets/custom_icons.dart';
@@ -74,20 +75,20 @@ class ListCategory extends StatelessWidget {
     return const Column(
       children: [
         ItemCategory(
-          nameText: 'PHOTOGRAPHY',
+          nameText: TitleTexts.photographyTitle,
           imageCategory: ImagePaths.categoryPhotographyPath,
         ),
         ItemCategory(
-          nameText: 'ILLUSTRATION',
+          nameText: TitleTexts.illustrationTitle,
           imageCategory: ImagePaths.categoryIllustrationPath,
           isLeftAligned: false,
         ),
         ItemCategory(
-          nameText: 'DESIGN ',
+          nameText: TitleTexts.designTitle,
           imageCategory: ImagePaths.categoryDesignPath,
         ),
         ItemCategory(
-          nameText: 'MAKING VIDEO',
+          nameText: TitleTexts.makingVideoTitle,
           imageCategory: ImagePaths.categoryMakingVideoPath,
           isLeftAligned: false,
         )

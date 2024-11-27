@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:network/app/image_paths.dart';
 import 'package:network/app/messages.dart';
+import 'package:network/app/texts.dart';
 import 'package:network/data/models/user_model.dart';
 import 'package:network/data/services/user_service.dart';
 import 'package:network/utils/get_user_id.dart';
@@ -107,7 +108,9 @@ class _HeaderUserProfileState extends State<HeaderUserSearch> {
                     builder: (context, snapshot) {
                       bool isFollowing = snapshot.data ?? false;
                       return CustomElevatedButton(
-                        text: isFollowing ? 'Unfollow' : 'Follow',
+                        text: isFollowing
+                            ? ButtonTexts.unfollow
+                            : ButtonTexts.follow,
                         onPressed: () => _toggleFollow(isFollowing),
                         width: isFollowing ? 120 : 100,
                         gradientColors: isFollowing
@@ -187,7 +190,7 @@ class _HeaderUserProfileState extends State<HeaderUserSearch> {
                                           style: const TextStyle(
                                               fontWeight: FontWeight.bold)),
                                       const SizedBox(width: 5),
-                                      const Text('Followers'),
+                                      const Text(TitleTexts.followers),
                                     ],
                                   ),
                                 ),
@@ -202,7 +205,7 @@ class _HeaderUserProfileState extends State<HeaderUserSearch> {
                                           style: const TextStyle(
                                               fontWeight: FontWeight.bold)),
                                       const SizedBox(width: 5),
-                                      const Text('Following'),
+                                      const Text(TitleTexts.following),
                                     ],
                                   ),
                                 ),

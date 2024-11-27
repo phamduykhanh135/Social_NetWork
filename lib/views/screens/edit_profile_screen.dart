@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:network/app/image_paths.dart';
 import 'package:network/app/messages.dart';
+import 'package:network/app/texts.dart';
 import 'package:network/views/widgets/show_snackbar.dart';
 import 'package:network/views/widgets/custom_elevated_button.dart';
 import 'package:network/views/widgets/custom_icons.dart';
@@ -165,7 +166,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 alignment: Alignment.center,
                                 width: MediaQuery.of(context).size.width,
                                 child: const Text(
-                                  'Edit profile',
+                                  TitleTexts.editProfileTitle,
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 20,
@@ -218,20 +219,20 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           child: Column(
                             children: [
                               CustomTextFormFiel(
-                                  textName: 'Name',
+                                  textName: TitleTexts.nameTitle,
                                   controller: _nameController,
-                                  lableText: 'Enter your name',
+                                  lableText: HintTexts.enterYourNameHint,
                                   validator: Validators.validateName),
                               CustomTextFormFiel(
-                                textName: 'Full Name',
+                                textName: TitleTexts.fullnameTitle,
                                 controller: _fullNameController,
-                                lableText: 'Enter your full name',
+                                lableText: HintTexts.enterYourFullnameHint,
                                 validator: Validators.validateName,
                               ),
                               CustomTextFormFiel(
-                                textName: 'Email',
+                                textName: TitleTexts.emailTitle,
                                 controller: _emailController,
-                                lableText: 'Enter your email',
+                                lableText: HintTexts.enterYourEmailHint,
                                 validator: Validators.validateEmail,
                               ),
                               SizedBox(
@@ -241,7 +242,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               Opacity(
                                 opacity: _isLoading ? 0.5 : 1.0,
                                 child: CustomElevatedButton(
-                                  text: 'SAVE CHANGES',
+                                  text: ButtonTexts.saveChange,
                                   onPressed: _isLoading
                                       ? () {}
                                       : () {

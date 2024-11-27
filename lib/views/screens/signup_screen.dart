@@ -215,7 +215,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                             ShadowColor.transparentShadow,
                                       ),
                                       child: const Text(
-                                        ButtonTexts.signIn,
+                                        ButtonTexts.signUp,
                                         style: TextStyle(
                                           fontSize: 16,
                                         ),

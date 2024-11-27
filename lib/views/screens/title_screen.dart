@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:go_router/go_router.dart';
 import 'package:network/app/image_paths.dart';
 import 'package:network/app/messages.dart';
+import 'package:network/app/texts.dart';
 import 'package:network/data/models/post_model.dart';
 import 'package:network/data/services/post_service.dart';
 import 'package:network/utils/get_user_id.dart';
@@ -125,7 +126,7 @@ class _ItemPostToTitleState extends State<ItemPostToTitle> {
                   style: TextStyle(
                       color: Colors.red, fontWeight: FontWeight.bold)),
               content: const Text(
-                'Bạn có muốn xóa ảnh này không?',
+                DescriptionTexts.doYouWantToDeleteThisPhoto,
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               actions: [
@@ -150,7 +151,7 @@ class _ItemPostToTitleState extends State<ItemPostToTitle> {
                     if (widget.onPostDeleted != null)
                       widget.onPostDeleted!(); // Gọi callback
                   },
-                  child: const Text('Xóa',
+                  child: const Text(ButtonTexts.delete,
                       style: TextStyle(
                           color: Colors.white, fontWeight: FontWeight.bold)),
                 ),
@@ -164,7 +165,7 @@ class _ItemPostToTitleState extends State<ItemPostToTitle> {
                   onPressed: () {
                     Navigator.of(context).pop(); // Đóng dialog
                   },
-                  child: const Text('Trở về'),
+                  child: const Text(ButtonTexts.cacel),
                 ),
               ],
             );
